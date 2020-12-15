@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{block name="title"}标题{/block}</title>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/layui/layui.js"></script>
+    <script src="/static/js/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <aside>
+            <div class="brand">
+                <a href="/">CLICK</a>
+            </div>
+            <div class="nav">
+                <ul class="layui-nav layui-nav-tree">
+                      <li class="layui-nav-item {if $nav.t1 === 'google'}layui-nav-itemed{/if}">
+                        <a href="javascript:;">Google 点击</a>
+                        <dl class="layui-nav-child">
+                          <dd {if $nav.t2 === 'myTask'}class="layui-this"{/if}><a href="javascript:;">我的任务</a></dd>
+                          <dd><a href="javascript:;" onclick="add_google_mask()">发布任务</a></dd>
+                        </dl>
+                      </li>
+                    </ul>
+            </div>
+        </aside>
+        <div class="con">
+            <div class="bum"><i class="layui-icon layui-icon-home"></i>{$nav.name}</div>
+            <div class="content">
+                {block name="page"}
+    
+                {/block}
+            </div>
+        </div>
+    </div>
+    <script>
+      var layer;
+
+      layui.use(['layer', 'element'], function () {
+          layer = layui.layer;
+      })
+
+      function add_google_mask()
+      {
+        layer.open({
+          type: 2,
+          title: '添加google点击任务',
+          content: ['/index/add_google_mask', 'no'],
+          area: ['450px', '600px']
+        })
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{extend name="layouts/manage" /}
+
+{block name="title"}主页{/block}
+
+{block name="page"}
+<table id="task" lay-filter="task"></table>
+
+<script>
+    layui.use('table', function(){
+        var table = layui.table;
+        
+        //第一个实例
+        table.render({
+            elem: '#task'
+            ,height: 312
+            ,url: '/index/get_google_mask' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+            {field: 'id', title: 'ID', width:62, sort: true, fixed: 'left'}
+            ,{field: 'word', title: '关键词', width:120}
+            ,{field: 'domain', title: '域名', width:200}
+            ,{field: 'start_rank', title: '初始排名', width:120, sort: true}
+            ,{field: 'rank', title: '当前排名', width:120, sort: true} 
+            ,{field: 'day_click_times', title: '每日点击次数', width: 120, sort: true}
+            ,{field: 'day_has_click', title: '今日已点', width: 120, sort: true}
+            ]]
+        });
+
+        table.on('rowDouble(task)', function (obj) {
+            layer.open({
+                title: '任务编辑',
+                type: 2,
+                content: '/index/edit_google_mask?id=' + obj.data.id,
+                area: ['450px', '600px']
+            })
+        })
+    
+    });
+</script>
+{/block}

@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    background-color: #000;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main {
+    width: 1100px;
+    height: 760px;
+    background-color: #fff;
+    display: flex;
+    flex-flow: row;
+}
+
+.main aside {
+    width: 200px;
+    background-color: #393d49;
+}
+
+.main .con {
+    flex: 1;
+    width: 900px;
+}
+
+.layui-table td, .layui-table th {
+    font-size: 12px;
+}
+
+/* .layui-nav {
+    background-color: #fff;
+}
+
+.layui-nav-tree .layui-nav-child a, .layui-nav .layui-nav-item a {
+    color: #333;
+}
+
+.layui-nav-item {
+    border-bottom: 1px solid #ddd;
+} */
+
+aside .brand a {
+    font-size: 32px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    display: block;
+}
+
+.bum {
+    background-color: #40b5a4;
+    line-height: 42px;
+    padding: 0 10px;
+    color: #fff;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.bum i {
+    margin-right: 12px;
+    color: #fff;
+}
+
+.content {
+    
+    box-sizing: border-box;
+    padding: 0 15px;
+}
